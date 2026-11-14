@@ -1,4 +1,4 @@
-namespace ChatApp.Client.Forms;
+﻿namespace ChatApp.Client.Forms;
 
 partial class MainForm
 {
@@ -287,3 +287,5 @@ partial class MainForm
     private StatusStrip statusStrip;
     private ToolStripStatusLabel lblStatus;
 }
+
+

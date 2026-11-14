@@ -9,6 +9,7 @@
     <RootNamespace>ChatApp.Client</RootNamespace>
     <AssemblyName>ChatApp.Client</AssemblyName>
     <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+    <NoWarn>$(NoWarn);CS8618;CS8669</NoWarn>
     <Authors>Metehan Salihoğlu</Authors>
   </PropertyGroup>
 
@@ -17,3 +18,4 @@
   </ItemGroup>
 
 </Project>
+

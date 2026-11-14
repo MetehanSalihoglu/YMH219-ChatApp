@@ -1,4 +1,4 @@
-namespace ChatApp.Server.Forms;
+﻿namespace ChatApp.Server.Forms;
 
 partial class MainForm
 {
@@ -24,7 +24,9 @@ partial class MainForm
         btnStart = new Button();
         txtPort = new TextBox();
         lblPort = new Label();
-        split = new SplitContainer();
+        split = new TableLayoutPanel();
+        pnl1 = new Panel();
+        pnl2 = new Panel();
         lvClients = new ListView();
         colUser = new ColumnHeader();
         colIp = new ColumnHeader();
@@ -35,9 +37,8 @@ partial class MainForm
         statusStrip = new StatusStrip();
         lblStatus = new ToolStripStatusLabel();
         panelTop.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)split).BeginInit();
-        split.Panel1.SuspendLayout();
-        split.Panel2.SuspendLayout();
+        pnl1.SuspendLayout();
+        pnl2.SuspendLayout();
         split.SuspendLayout();
         statusStrip.SuspendLayout();
         SuspendLayout();
@@ -119,14 +120,22 @@ partial class MainForm
         split.Dock = DockStyle.Fill;
         split.Location = new Point(0, 56);
         split.Name = "split";
-        split.Panel1.Controls.Add(lvClients);
-        split.Panel1.Controls.Add(lblClients);
-        split.Panel1.Padding = new Padding(8);
-        split.Panel2.Controls.Add(lstLog);
-        split.Panel2.Controls.Add(lblLog);
-        split.Panel2.Padding = new Padding(8);
+        pnl1.Controls.Add(lvClients);
+        pnl1.Controls.Add(lblClients);
+        pnl1.Padding = new Padding(8);
+        pnl2.Controls.Add(lstLog);
+        pnl2.Controls.Add(lblLog);
+        pnl2.Padding = new Padding(8);
         split.Size = new Size(860, 450);
-        split.SplitterDistance = 400;
+        split.ColumnCount = 2;
+        split.RowCount = 1;
+        split.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 47F));
+        split.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 53F));
+        split.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+        split.Controls.Add(pnl1, 0, 0);
+        split.Controls.Add(pnl2, 1, 0);
+        pnl1.Dock = DockStyle.Fill;
+        pnl2.Dock = DockStyle.Fill;
         split.TabIndex = 1;
         // 
         // lblClients
@@ -206,9 +215,8 @@ partial class MainForm
         FormClosing += MainForm_FormClosing;
         panelTop.ResumeLayout(false);
         panelTop.PerformLayout();
-        split.Panel1.ResumeLayout(false);
-        split.Panel2.ResumeLayout(false);
-        ((System.ComponentModel.ISupportInitialize)split).EndInit();
+        pnl1.ResumeLayout(false);
+        pnl2.ResumeLayout(false);
         split.ResumeLayout(false);
         statusStrip.ResumeLayout(false);
         statusStrip.PerformLayout();
@@ -224,7 +232,9 @@ partial class MainForm
     private Button btnStart;
     private Button btnStop;
     private Label lblIndicator;
-    private SplitContainer split;
+    private TableLayoutPanel split;
+    private Panel pnl1;
+    private Panel pnl2;
     private Label lblClients;
     private ListView lvClients;
     private ColumnHeader colUser;
@@ -235,3 +245,6 @@ partial class MainForm
     private StatusStrip statusStrip;
     private ToolStripStatusLabel lblStatus;
 }
+
+
+
